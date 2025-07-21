@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { useState, useEffect } from 'react';
 
 const cvData = {
   name: 'MASI EMIL',
@@ -116,6 +117,11 @@ const cvData = {
 };
 
 export default function App() {
+  const [showWelcome, setShowWelcome] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => setShowWelcome(false), 3200);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div style={{
       minHeight: '100vh',
@@ -126,6 +132,44 @@ export default function App() {
       boxSizing: 'border-box',
       position: 'relative',
     }}>
+      {showWelcome && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          background: 'rgba(20,24,28,0.92)',
+          zIndex: 2000,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          transition: 'opacity 0.5s',
+        }}>
+          <div style={{
+            background: 'rgba(30,40,36,0.98)',
+            borderRadius: '18px',
+            boxShadow: '0 8px 32px 0 rgba(57,255,20,0.18)',
+            padding: '2.5rem 3.5rem',
+            textAlign: 'center',
+            color: '#39ff14',
+            fontSize: '2rem',
+            fontWeight: 'bold',
+            letterSpacing: '1.5px',
+            border: '2px solid #39ff14',
+            animation: 'fadeInWelcome 0.7s',
+          }}>
+            Welcome to Masi Emil’s Portfolio Site!<br />
+            <span style={{fontSize: '1.1rem', color: '#fff', fontWeight: 400}}>Explore my work, AI solutions, and more.</span>
+          </div>
+          <style>{`
+            @keyframes fadeInWelcome {
+              from { opacity: 0; transform: scale(0.95); }
+              to { opacity: 1; transform: scale(1); }
+            }
+          `}</style>
+        </div>
+      )}
       <style>{`
         a { color: #fff; text-decoration: underline; }
         .cv-section {
