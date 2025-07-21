@@ -6,7 +6,7 @@ const cvData = {
   title: 'Full Stack React | AI Custom Solutions Specialist Developer',
   address: '15 Parklodge Avenue, Cavendish House, West Drayton, London, UB7 9FR, United Kingdom',
   email: 'osomasi19@gmail.com',
-  phone: '07990868650 / 07078133825',
+  phone: '07078133825 / 07990868650',
   nationality: 'German/Nigerian',
   placeOfBirth: 'Nigeria',
   drivingLicense: 'Yes',
